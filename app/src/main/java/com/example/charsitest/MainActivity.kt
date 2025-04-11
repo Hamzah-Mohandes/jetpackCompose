@@ -6,19 +6,13 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -47,36 +41,22 @@ fun MyApp() {
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
-        Button(onClick = { }) {
-            Text(text = "Simple Button", fontSize = 20.sp)
-        }
+// Custom Button...........
+        Button( onClick = { },
+            shape = CircleShape,
+            elevation = ButtonDefaults.buttonElevation(
+                defaultElevation = 26.dp,
+                pressedElevation = 15.dp
+            ),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Black,
+                contentColor = Color.White
+            ),
+            modifier = Modifier.size(200.dp, 50.dp)
 
-        OutlinedButton(onClick = { }) {
-            Text(text = "Outlined Button", fontSize = 20.sp)
-        }
 
-        IconButton( onClick = { }) {
-            Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Favorite",
-                modifier = Modifier
-                    .padding(10.dp),
-                tint = Color.Red
-                )
-        }
-
-        TextButton( onClick = { }) {
-            Text(text = "Text like Button   ", fontSize = 20.sp)
-            Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
-            Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Favorite",
-                modifier = Modifier
-                    .size(ButtonDefaults.IconSize),
-                tint = Color.Red
-            )
-        }
-
-        Button( onClick = { }) {
-            Text(text = "Simple Button", fontSize = 20.sp)
-            Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
-            Icon( imageVector = Icons.Filled.Favorite, contentDescription = "Favorite",)
+        ) {
+            Text(text = "Simple Button", fontSize = 20.sp )
         }
 
     }
